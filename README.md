@@ -21,7 +21,8 @@ The terraform OpenStack provider plugin  uses the standard
 file to configure connection and authentication information for your
 cloud.
 
-A minimal example of this for CSAIL users is:
+A minimal example of this for (MIT CSAIL)[https://www.csail.mit.edu]
+Lab memebrs is:
 
     clouds:
        default:
@@ -34,6 +35,9 @@ A minimal example of this for CSAIL users is:
            region_name: CSAIL_Stata
            identity_api_version: 3
            
+Other users will need to check with their cloud provider for the
+correct values to fill in here.
+
 Using The Examples
 ==================
 
