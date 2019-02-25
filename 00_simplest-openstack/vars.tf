@@ -7,18 +7,20 @@
 # on your cloud
 ############################################################
 variable "servername" {
-  default="terraform-test"
+  default = "terraform-test"
 }
+
 variable "image" {
-  default="Ubuntu-18.04LTS-amd64"
+  default = "Ubuntu-18.04LTS-amd64"
 }
+
 variable "flavor" {
-  default="s1.2core"
+  default = "s1.2core"
 }
 
 variable "network" {
   default = "inet"
-}       
+}
 
 # note this is a list type variable
 # also these vary by project so you
@@ -37,6 +39,7 @@ variable "security_groups" {
 
 variable "cloudcfg" {
   type = "string"
+
   default = <<EOF
 #cloud-config
 

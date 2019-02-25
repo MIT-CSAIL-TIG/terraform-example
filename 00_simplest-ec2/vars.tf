@@ -7,11 +7,11 @@
 # on your cloud
 ############################################################
 variable "servername" {
-  default="terraform-test"
+  default = "terraform-test"
 }
 
 variable "instance_type" {
-  default="t2.micro"
+  default = "t2.micro"
 }
 
 # note this is a list type variable
@@ -31,6 +31,7 @@ variable "security_groups" {
 
 variable "cloudcfg" {
   type = "string"
+
   default = <<EOF
 #cloud-config
 

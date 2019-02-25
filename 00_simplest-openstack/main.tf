@@ -6,14 +6,14 @@
 ######################################################################
 
 resource "openstack_compute_instance_v2" "terraform_test" {
-
-  name = "${var.servername}"
-  image_name = "${var.image}"
+  name        = "${var.servername}"
+  image_name  = "${var.image}"
   flavor_name = "${var.flavor}"
   user_data   = "${var.cloudcfg}"
-  network {
-    name        = "${var.network}"
-  }
-  security_groups = "${var.security_groups}"
 
+  network {
+    name = "${var.network}"
+  }
+
+  security_groups = "${var.security_groups}"
 }

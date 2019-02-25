@@ -3,6 +3,7 @@
 output "private_ip" {
   value = "${aws_instance.terraform_test.private_ip}"
 }
+
 output "public_ip" {
   value = "${aws_instance.terraform_test.public_ip}"
 }
