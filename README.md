@@ -38,6 +38,30 @@ Lab memebrs is:
 Other users will need to check with their cloud provider for the
 correct values to fill in here.
 
+### A Note On Passwords
+
+Terraform won't work if it has to prompt you for your password which is
+unfortunate.  You **cloud** add a "password" key to the "auth:"
+section of clouds.yaml above but storing passwords in plain text is a
+big security no no.
+
+The other option is to temporarily store it on the environment
+variable OS_PASSWORD.  This still isn't great, but it's better.  The
+trick here is setting that variable without putting your plain text
+password into your shell history (which then gets written to disk).
+
+There are several ways to achieve this but we recommend this bit of
+shell copy pasta as most portable:
+
+    #!/bin/sh
+    echo "Please enter your OpenStack Password: "
+    read -sr OS_PASSWORD_INPUT
+    export OS_PASSWORD=$OS_PASSWORD_INPUT
+ 
+This will prompt for your password without echoing and export the
+proper variable. It won't validate you actually entered the right
+thing until you try an action that needs it unfortunately.
+
 Using The Examples
 ==================
 
