@@ -3,6 +3,11 @@
 # root access via pubkey really eases provisioning
 disable_root: ${disable_root}
 
+# root access via pubkey really eases provisioning
+disable_root: ${disable_root}
+
+${ssh_authorized_keys}
+
 package_update: true
 package_upgrade: ${upgrade}
 packages: ${packages}

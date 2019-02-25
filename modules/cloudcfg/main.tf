@@ -11,6 +11,20 @@ variable "disable_root" {
   default = "false"
 }
 
+# for (more) clarity in var files ${ssh_keys} should contain the key
+# as well as value
+#
+#variable "ssh_authorized_keys" {
+#  default = <<EOF
+#ssh_authorized_keys:
+#  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ5qw4kh1DukZPpNpo70WTHY756iNkBXERCydT2+Jaf/ jon@amergin
+#EOF
+#}
+# but default to no keys rather than my keys
+variable "ssh_authorized_keys" {
+  default = ""
+}
+
 # list of packages in string formated yaml list :)
 # "[ package1, package2, packageN]"
 variable "packages" {
