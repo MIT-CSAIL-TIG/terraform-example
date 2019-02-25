@@ -45,6 +45,13 @@ variable "reboot" {
   default = "True"
 }
 
+# catch all extra to dump arbitrary cloudcfg bits
+# at the end
+variable "extra_config" {
+  type    = "string"
+  default = ""
+}
+
 ### assumptions in template we may want to paramereize later:
 #   alawys update and upgrade package
 #   reboot after first boot incase htese updates catch a new kernel
@@ -98,7 +105,6 @@ variable "role" {
   default = "none"
 }
 
-
 # this controlls if we repoint package mirror at ubuntu.csail or not.
 # options are "local" or "remote", if you're running in EC2 use remote
 
@@ -116,17 +122,19 @@ data "template_file" "cloudcfg" {
 
   vars {
     # Externally accessable variables:
-    disable_root   = "${var.disable_root}"
-    packages       = "${var.packages}"
-    ephmeralnode   = "${var.ephmeralnode}"
-    familyoverride = "${var.familyoverride}"
-    group          = "${var.group}"
-    cluster        = "${var.cluster}"
-    role           = "${var.role}"
-    owner          = "${var.owner}"
-    autofs         = "${var.autofs}"
-    reboot         = "${var.reboot}"
-    upgrade        = "${var.upgrade}"
+    disable_root        = "${var.disable_root}"
+    ssh_authorized_keys = "${var.ssh_authorized_keys}"
+    packages            = "${var.packages}"
+    ephmeralnode        = "${var.ephmeralnode}"
+    familyoverride      = "${var.familyoverride}"
+    group               = "${var.group}"
+    cluster             = "${var.cluster}"
+    role                = "${var.role}"
+    owner               = "${var.owner}"
+    autofs              = "${var.autofs}"
+    reboot              = "${var.reboot}"
+    upgrade             = "${var.upgrade}"
+    extra_config        = "${var.extra_config}"
 
     # load correct package_mirrors if needed
     package_mirrors = "${file("${path.module}/${var.launch_zone}_package_mirrors.frag")}"

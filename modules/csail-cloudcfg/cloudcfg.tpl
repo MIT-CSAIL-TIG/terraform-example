@@ -71,3 +71,5 @@ runcmd:
 power_state:
   mode: reboot
   condition: ${reboot}
+
+${extra_config}

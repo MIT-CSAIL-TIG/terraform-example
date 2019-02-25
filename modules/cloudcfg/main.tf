@@ -45,11 +45,17 @@ variable "reboot" {
   default = "True"
 }
 
+# catch all extra to dump arbitrary cloudcfg bits
+# at the end
+variable "extra_config" {
+  type    = "string"
+  default = ""
+}
+
 ### assumptions in template we may want to paramereize later:
 #   alawys update and upgrade package
 #   reboot after first boot incase htese updates catch a new kernel
 ###
-
 
 ####################################
 ###        render cloudcfg       ###
@@ -60,11 +66,12 @@ data "template_file" "cloudcfg" {
 
   vars {
     # Externally accessable variables:
-    disable_root   = "${var.disable_root}"
-    packages       = "${var.packages}"
-    reboot         = "${var.reboot}"
-    upgrade        = "${var.upgrade}"
-
+    disable_root        = "${var.disable_root}"
+    ssh_authorized_keys = "${var.ssh_authorized_keys}"
+    packages            = "${var.packages}"
+    reboot              = "${var.reboot}"
+    upgrade             = "${var.upgrade}"
+    extra_config        = "${var.extra_config}"
   }
 }
 
