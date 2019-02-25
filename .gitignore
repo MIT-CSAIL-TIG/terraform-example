@@ -1,0 +1,5 @@
+# terraform state files don't go in git
+*.tfstate*
+*.backup
+.terraform
+
