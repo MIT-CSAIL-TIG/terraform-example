@@ -88,5 +88,5 @@ on the 00_simplest-ec2 example.
 Terraform supports many many other "providers" as they are called see
 https://www.terraform.io/docs/providers/index.html
 
-For future work I hope to include a Google COmpute Engine example
+For future work I hope to include a Google Compute Engine example
 (GCE) but need ot set up a test account there first...
