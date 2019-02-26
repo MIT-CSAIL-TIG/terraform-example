@@ -73,6 +73,6 @@ resource "openstack_compute_instance_v2" "terraform_test" {
  # local commands are also possible
  # this appends the dynamic IP of this host to a file 
  provisioner "local-exec" {
-   command = "echo ${openstack_compute_instance_v2.terraform_test.network.0.fixed_ip_v4} >> ips.txt"
+   command = "echo ${self.network.0.fixed_ip_v4} >> ips.txt"
  }
 }
