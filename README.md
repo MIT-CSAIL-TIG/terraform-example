@@ -9,6 +9,10 @@ binary and install in your PATH
 
 This example was written using v0.11.11
 
+For a general introdution to terraform see
+https://learn.hashicorp.com/terraform/ these examples are a detailed
+examination of a narrow use case.
+
 OpenStack Authentication
 ------------------------
 
@@ -75,3 +79,14 @@ system with `terraform` installed the changing directory to the
 example and running 
 
     terraform apply
+
+Generally number prefixes suggest order to follow.
+
+Most examples are based on OpenStack but could be adapted to EC2 based
+on the 00_simplest-ec2 example.
+
+Terraform supports many many other "providers" as they are called see
+https://www.terraform.io/docs/providers/index.html
+
+For future work I hope to include a Google COmpute Engine example
+(GCE) but need ot set up a test account there first...
